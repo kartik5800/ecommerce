@@ -19,6 +19,7 @@ function Checkout(props) {
       </div>
     </div>
   </div>
+  
   {/* end search arewa */}
   {/* breadcrumb-section */}
   <div className="breadcrumb-section breadcrumb-bg">

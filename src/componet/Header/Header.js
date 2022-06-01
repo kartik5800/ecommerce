@@ -85,6 +85,7 @@ function Header(props) {
                                         </ul>
                                     </li>
                                     <li>
+                                        
                                         {/* <a href="contact.html">Contact</a> */}
                                         <NavLink exact to={'/Contact'} className='current-list-item'>Contact</NavLink>
                                     </li>

@@ -31,6 +31,7 @@ function App() {
         <Route exact path = {"/Cart"} component ={Cart} />
         <Route exact path = {"/Checkout"} component = {Checkout} />
         <Route exact path = {"/A404"} component = {A404} />
+        
        </Switch>
       <Footer />
     </div>
