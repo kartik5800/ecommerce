@@ -22,8 +22,15 @@ function Header(props) {
                                         {/* <a href="#">Home</a> */}
                                         <NavLink exact to={'/Home'} className='current-list-item'>Home</NavLink>
                                         <ul className="sub-menu">
-                                            <li><a href="index.html">Static Home</a></li>
-                                            <li><a href="index_2.html">Slider Home</a></li>
+                                            <li>
+                                                {/* <a href="index.html">Static Home</a> */}
+                                                <NavLink exact to={'/Home'} className='current-list-item'>Static Home</NavLink>
+                                            
+                                            </li>
+                                            <li>
+                                                {/* <a href="index_2.html">Slider Home</a> */}
+                                                <NavLink exact to={'/Home1'} className='current-list-item'>Slider Home</NavLink>
+                                            </li>
                                         </ul>
                                     </li>
                                     <li>
@@ -33,13 +40,16 @@ function Header(props) {
                                         {/* <a href="#">Pages</a>    */}
                                         <NavLink exact to={'/Pages'} className='current-list-item'>Pages</NavLink>
                                         <ul className="sub-menu">
-                                            <li><a href="404.html">404 page</a></li>
+                                            <li>
+                                                {/* <a href="404.html">404 page</a> */}
+                                            <NavLink exact to={'/A404'} className='current-list-item'>404 page</NavLink>
+                                            </li>
                                             <li>
                                                 {/* <a href="about.html">About</a> */}
                                                 <NavLink exact to={'/About'} className='current-list-item'>About</NavLink>
                                             </li>
                                             <li>
-                                                <a href="cart.html">Cart</a>
+                                                {/* <a href="cart.html">Cart</a> */}
                                                 <NavLink exact to={'/Cart'} className='current-list-item'>Cart</NavLink>
                                             </li>
                                             <li>
@@ -82,10 +92,22 @@ function Header(props) {
                                         {/* <a href="shop.html">Shop</a> */}
                                         <NavLink exact to={'/Shop'} className='current-list-item'>Shop</NavLink>
                                         <ul className="sub-menu">
-                                            <li><a href="shop.html">Shop</a></li>
-                                            <li><a href="checkout.html">Check Out</a></li>
-                                            <li><a href="single-product.html">Single Product</a></li>
-                                            <li><a href="cart.html">Cart</a></li>
+                                            <li>
+                                                {/* <a href="shop.html">Shop</a> */}
+                                            <NavLink exact to={'/Shop'} className='current-list-item'>Shop</NavLink>
+                                            </li>
+                                            <li>
+                                                {/* <a href="checkout.html">Check Out</a> */}
+                                            <NavLink exact to={'/Checkout'} className='current-list-item'>Check Out</NavLink>
+                                            </li>
+                                            <li>
+                                                {/* <a href="single-product.html">Single Product</a> */}
+                                            <NavLink exact to={'/Singleproduct'} className='current-list-item'>Single Product</NavLink>
+                                            </li>
+                                            <li>
+                                                {/* <a href="cart.html">Cart</a> */}
+                                            <NavLink exact to={'/Cart'} className='current-list-item'>Cart</NavLink>
+                                            </li>
                                         </ul>
                                     </li>
                                     <li>

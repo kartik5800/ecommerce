@@ -9,6 +9,11 @@ import Contact from './container/Contact';
 import Shop from './container/Shop';
 import News from './container/News';
 import Singalnews from './container/SingalNews';
+import Singleproduct from './container/Singleproduct';
+import Home1 from './container/Home1';
+import Cart from './container/Cart';
+import Checkout from './container/Checkout';
+import A404 from './container/A404';
 
 function App() {
   return (
@@ -21,7 +26,12 @@ function App() {
         <Route exact path = {"/Shop"} component = {Shop}/>
         <Route exact path = {"/News"} component= {News}/>
         <Route exact path = {"/SingalNews"} component = {Singalnews}/>
-      </Switch>
+        <Route exact path = {"/Singleproduct"} component = {Singleproduct} />
+        <Route exact path = {"/Home1"} component = {Home1} />
+        <Route exact path = {"/Cart"} component ={Cart} />
+        <Route exact path = {"/Checkout"} component = {Checkout} />
+        <Route exact path = {"/A404"} component = {A404} />
+       </Switch>
       <Footer />
     </div>
   );
