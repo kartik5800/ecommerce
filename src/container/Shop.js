@@ -120,6 +120,7 @@ function Shop(props) {
                                     <li><a className="active" href="#">2</a></li>
                                     <li><a href="#">3</a></li>
                                     <li><a href="#">Next</a></li>
+                                    
                                 </ul>
                             </div>
                         </div>
