@@ -10,8 +10,9 @@ function Header(props) {
                         <div className="main-menu-wrap">
                             {/* logo */}
                             <div className="site-logo">
-                                <a href="index.html">
-                                    <img src="assets/img/logo.png" alt />
+                                <a>
+                                <NavLink exact to={'/Home'} className='site-logo'><img src="assets/img/logo.png" alt /></NavLink>
+                                    
                                 </a>
                             </div>
                             {/* logo */}
@@ -38,7 +39,7 @@ function Header(props) {
                                         <NavLink exact to={'/About'} className='current-list-item'>About</NavLink></li>
                                     <li>
                                         {/* <a href="#">Pages</a>    */}
-                                        <NavLink exact to={'/Pages'} className='current-list-item'>Pages</NavLink>
+                                        <NavLink exact to={'/home'} className='current-list-item'>Pages</NavLink>
                                         <ul className="sub-menu">
                                             <li>
                                                 {/* <a href="404.html">404 page</a> */}
@@ -54,7 +55,7 @@ function Header(props) {
                                             </li>
                                             <li>
                                                 {/* <a href="checkout.html">Check Out</a> */}
-                                                <NavLink exact to={'/Check Out'} className='current-list-item'>Check Out</NavLink>
+                                                <NavLink exact to={'/Checkout'} className='current-list-item'>Check Out</NavLink>
                                             </li>
                                             <li>
                                                 {/* <a href="contact.html">Contact</a> */}
@@ -75,12 +76,12 @@ function Header(props) {
                                         <NavLink exact to={'/News'} className='current-list-item'>News</NavLink>
                                         <ul className="sub-menu">
                                             <li>
-                                                <a href="news.html">News</a>
+                                                {/* <a href="news.html">News</a> */}
                                                 <NavLink exact to={'/News'} className='current-list-item'>News</NavLink>
                                             </li>
                                             <li>
                                                 {/* <a href="single-news.html">Single News</a> */}
-                                                <NavLink exact to={'/Singlenews'} className='current-list-item'>Singlenews</NavLink>
+                                                <NavLink exact to={'/SingalNews'} className='current-list-item'>Single News</NavLink>
                                             </li>
                                         </ul>
                                     </li>
@@ -113,8 +114,11 @@ function Header(props) {
                                     </li>
                                     <li>
                                         <div className="header-icons">
-                                            <a className="shopping-cart" href="cart.html"><i className="fas fa-shopping-cart" /></a>
+                                            {/* <a className="shopping-cart" href="cart.html"><i className="fas fa-shopping-cart" /></a> */}
+                                            <NavLink exact to={'/Cart'} className='fas fa-shopping-cart'>Cart</NavLink>
+                                            
                                             <a className="mobile-hide search-bar-icon" href="#"><i className="fas fa-search" /></a>
+                                            <NavLink exact to={'/Cart'} className='fas fa-shopping-cart'>Cart</NavLink>
                                         </div>
                                     </li>
                                 </ul>

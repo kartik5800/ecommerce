@@ -23,7 +23,7 @@ function Home1(props) {
   {/* home page slider */}
   <div className="homepage-slider">
     {/* single home slider */}
-    <div className="single-homepage-slider homepage-bg-1">
+    {/* <div className="single-homepage-slider homepage-bg-1">
       <div className="container">
         <div className="row">
           <div className="col-md-12 col-lg-7 offset-lg-1 offset-xl-0">
@@ -40,7 +40,7 @@ function Home1(props) {
           </div>
         </div>
       </div>
-    </div>
+    </div> */}
     {/* single home slider */}
     <div className="single-homepage-slider homepage-bg-2">
       <div className="container">
@@ -61,7 +61,7 @@ function Home1(props) {
       </div>
     </div>
     {/* single home slider */}
-    <div className="single-homepage-slider homepage-bg-3">
+    {/* <div className="single-homepage-slider homepage-bg-3">
       <div className="container">
         <div className="row">
           <div className="col-lg-10 offset-lg-1 text-right">
@@ -78,7 +78,7 @@ function Home1(props) {
           </div>
         </div>
       </div>
-    </div>
+    </div> */}
   </div>
   {/* end home page slider */}
   {/* features list section */}
