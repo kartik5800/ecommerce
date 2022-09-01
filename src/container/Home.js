@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 function Home(props) {
     return (
@@ -30,8 +31,8 @@ function Home(props) {
                                     <p className="subtitle">Fresh &amp; Organic</p>
                                     <h1>Delicious Seasonal Fruits</h1>
                                     <div className="hero-btns">
-                                        <a href="shop.html" className="boxed-btn">Fruit Collection</a>
-                                        <a href="contact.html" className="bordered-btn">Contact Us</a>
+                                        <NavLink exact to={'/Shop'} className='boxed-btn'>Fruit Collection</NavLink>
+                                        <NavLink exact to={'/Contact'} className='bordered-btn'>Contact Us</NavLink>
                                     </div>
                                 </div>
                             </div>
@@ -226,7 +227,7 @@ function Home(props) {
                                 <h2>We are <span className="orange-text">Fruitkha</span></h2>
                                 <p>Etiam vulputate ut augue vel sodales. In sollicitudin neque et massa porttitor vestibulum ac vel nisi. Vestibulum placerat eget dolor sit amet posuere. In ut dolor aliquet, aliquet sapien sed, interdum velit. Nam eu molestie lorem.</p>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente facilis illo repellat veritatis minus, et labore minima mollitia qui ducimus.</p>
-                                <a href="about.html" className="boxed-btn mt-4">know more</a>
+                                <NavLink exact to={'/About'} className='boxed-btn'>know more</NavLink>
                             </div>
                         </div>
                     </div>

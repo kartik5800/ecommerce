@@ -11,8 +11,8 @@ function Header(props) {
                             {/* logo */}
                             <div className="site-logo">
                                 <a>
-                                <NavLink exact to={'/Home'} className='site-logo'><img src="assets/img/logo.png" alt /></NavLink>
-                                    
+                                    <NavLink exact to={'/'} className='site-logo'><img src="assets/img/logo.png" alt /></NavLink>
+
                                 </a>
                             </div>
                             {/* logo */}
@@ -21,12 +21,12 @@ function Header(props) {
                                 <ul>
                                     <li className="current-list-item">
                                         {/* <a href="#">Home</a> */}
-                                        <NavLink exact to={'/Home'} className='current-list-item'>Home</NavLink>
+                                        <NavLink exact to={'/'} className='current-list-item'>Home</NavLink>
                                         <ul className="sub-menu">
                                             <li>
                                                 {/* <a href="index.html">Static Home</a> */}
-                                                <NavLink exact to={'/Home'} className='current-list-item'>Static Home</NavLink>
-                                            
+                                                <NavLink exact to={'/'} className='current-list-item'>Static Home</NavLink>
+
                                             </li>
                                             <li>
                                                 {/* <a href="index_2.html">Slider Home</a> */}
@@ -39,11 +39,11 @@ function Header(props) {
                                         <NavLink exact to={'/About'} className='current-list-item'>About</NavLink></li>
                                     <li>
                                         {/* <a href="#">Pages</a>    */}
-                                        <NavLink exact to={'/home'} className='current-list-item'>Pages</NavLink>
+                                        <NavLink exact to={'/'} className='current-list-item'>Pages</NavLink>
                                         <ul className="sub-menu">
                                             <li>
                                                 {/* <a href="404.html">404 page</a> */}
-                                            <NavLink exact to={'/A404'} className='current-list-item'>404 page</NavLink>
+                                                <NavLink exact to={'/A404'} className='current-list-item'>404 page</NavLink>
                                             </li>
                                             <li>
                                                 {/* <a href="about.html">About</a> */}
@@ -86,7 +86,7 @@ function Header(props) {
                                         </ul>
                                     </li>
                                     <li>
-                                        
+
                                         {/* <a href="contact.html">Contact</a> */}
                                         <NavLink exact to={'/Contact'} className='current-list-item'>Contact</NavLink>
                                     </li>
@@ -96,19 +96,19 @@ function Header(props) {
                                         <ul className="sub-menu">
                                             <li>
                                                 {/* <a href="shop.html">Shop</a> */}
-                                            <NavLink exact to={'/Shop'} className='current-list-item'>Shop</NavLink>
+                                                <NavLink exact to={'/Shop'} className='current-list-item'>Shop</NavLink>
                                             </li>
                                             <li>
                                                 {/* <a href="checkout.html">Check Out</a> */}
-                                            <NavLink exact to={'/Checkout'} className='current-list-item'>Check Out</NavLink>
+                                                <NavLink exact to={'/Checkout'} className='current-list-item'>Check Out</NavLink>
                                             </li>
                                             <li>
                                                 {/* <a href="single-product.html">Single Product</a> */}
-                                            <NavLink exact to={'/Singleproduct'} className='current-list-item'>Single Product</NavLink>
+                                                <NavLink exact to={'/Singleproduct'} className='current-list-item'>Single Product</NavLink>
                                             </li>
                                             <li>
                                                 {/* <a href="cart.html">Cart</a> */}
-                                            <NavLink exact to={'/Cart'} className='current-list-item'>Cart</NavLink>
+                                                <NavLink exact to={'/Cart'} className='current-list-item'>Cart</NavLink>
                                             </li>
                                         </ul>
                                     </li>
@@ -116,9 +116,9 @@ function Header(props) {
                                         <div className="header-icons">
                                             {/* <a className="shopping-cart" href="cart.html"><i className="fas fa-shopping-cart" /></a> */}
                                             <NavLink exact to={'/Cart'} className='fas fa-shopping-cart'>Cart</NavLink>
-                                            
+
                                             <a className="mobile-hide search-bar-icon" href="#"><i className="fas fa-search" /></a>
-                                            <NavLink exact to={'/Cart'} className='fas fa-shopping-cart'>Cart</NavLink>
+
                                         </div>
                                     </li>
                                 </ul>
