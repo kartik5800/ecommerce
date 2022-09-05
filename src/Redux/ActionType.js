@@ -1,0 +1,25 @@
+
+
+export const EMAIL_VARIFICATION ="EMAIL_VARIFICATION"
+export const AUTH_LOGIN = "AUTH_LOGIN"
+
+export const LOGIN_FORM = "LOGIN_FORM"
+export const LOGED_FORM = "LOGED_FORM"
+
+export const LOGOUT_USER = "LOGOUT_USER"
+export const LOGGEDOUT_USER = "LOGGEDOUT_USER"
+
+export const GOOGLE_LOGIN = "GOOGLE_LOGIN"
+
+export const FORGOT_PASSWORD = "FORGOT_PASSWORD"
+
+
+export const SET_ALERT = "SET_ALERT"
+export const RESET_ALERT = "RESET_ALERT"
+
+export const GET_DOCTOR = "GET_DOCTOR"
+export const POST_DOCTOR= "POST_DOCTOR"
+export const LOADING_DOCTOR = "LOADING_DOCTOR"
+export const ERROE_DOCTOR = "ERROE_DOCTOR"
+export const DELETE_DOCTOR = "DELETE_DOCTOR"
+export const UPDATE_DOCTOR = "UPDATE_DOCTOR"

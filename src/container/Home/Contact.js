@@ -64,15 +64,15 @@ function Contact(props) {
                             <div className="contact-form-wrap">
                                 <div className="contact-form-box">
                                     <h4><i className="fas fa-map" /> Shop Address</h4>
-                                    <p>34/8, East Hukupara <br /> Gifirtok, Sadan. <br /> Country Name</p>
+                                    <p>40/41 royal plazza <br /> jakatnaka, surat. <br /> India</p>
                                 </div>
                                 <div className="contact-form-box">
                                     <h4><i className="far fa-clock" /> Shop Hours</h4>
-                                    <p>MON - FRIDAY: 8 to 9 PM <br /> SAT - SUN: 10 to 8 PM </p>
+                                    <p>MON - FRIDAY: 8 to 9 PM <br /> SAT - SUN: 10 to 5 PM </p>
                                 </div>
                                 <div className="contact-form-box">
                                     <h4><i className="fas fa-address-book" /> Contact</h4>
-                                    <p>Phone: +00 111 222 3333 <br /> Email: support@fruitkha.com</p>
+                                    <p>Phone: +01 971 179 88888 <br /> Email: support@ElectroHub.com</p>
                                 </div>
                             </div>
                         </div>
@@ -93,7 +93,7 @@ function Contact(props) {
             {/* end find our location */}
             {/* google map section */}
             <div className="embed-responsive embed-responsive-21by9">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d26432.42324808999!2d-118.34398767954286!3d34.09378509738966!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2bf07045279bf%3A0xf67a9a6797bdfae4!2sHollywood%2C%20Los%20Angeles%2C%20CA%2C%20USA!5e0!3m2!1sen!2sbd!4v1576846473265!5m2!1sen!2sbd" width={600} height={450} frameBorder={0} style={{ border: 0 }} allowFullScreen className="embed-responsive-item" />
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3719.3272240434553!2d72.89455075100012!3d21.218868985826468!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be04ffc5141a629%3A0x4bed3e688814ca3a!2sRoyal%20Plaza%20Compound%20(Bhumi%20Corporation)!5e0!3m2!1sen!2sin!4v1662140819198!5m2!1sen!2sin" width={600} height={450} frameBorder={0} style={{ border: 0 }} allowFullScreen className="embed-responsive-item" />
             </div>
         </div>
 
@@ -101,3 +101,4 @@ function Contact(props) {
 }
 
 export default Contact;
+

@@ -3,37 +3,68 @@ import './App.css';
 import { Route, Switch } from 'react-router-dom'
 import Header from './componet/Header/Header';
 import Footer from './componet/Footer/Footer';
-import Home from './container/Home';
-import About from './container/About';
-import Contact from './container/Contact';
-import Shop from './container/Shop';
-import News from './container/News';
-import Singalnews from './container/SingalNews';
-import Singleproduct from './container/Singleproduct';
-import Home1 from './container/Home1';
-import Cart from './container/Cart';
-import Checkout from './container/Checkout';
-import A404 from './container/A404';
+import Home from './container/Home/Home';
+import About from './container/Home/About';
+import Contact from './container/Home/Contact';
+import Shop from './container/Home/Shop';
+import News from './container/Home/News';
+import Singleproduct from './container/Home/Singleproduct';
+import Cart from './container/Home/Cart';
+import Checkout from './container/Home/Checkout';
+import A404 from './container/Home/A404';
+import { SnackbarProvider } from 'notistack';
+import { Provider } from 'react-redux';
+import { PersistGate } from 'redux-persist/integration/react';
+import store, { persistor } from './Redux/Store';
+import PublicRoute from './Routes/PublicRoute';
+import Login from './container/Login-signup/Login';
+// import Doctor from './Admin/Container/Doctor';
+import Layout from './Admin/Component/Layout/Layout'
+import Doctor from './container/Home/Doctor';
 
 function App() {
   return (
     <div className="App">
-      <Header />
-      <Switch>
-        <Route exact path={"/"} component={Home} />
-        <Route exact path={"/About"} component={About} />
-        <Route exact path={"/Contact"} component={Contact} />
-        <Route exact path={"/Shop"} component={Shop} />
-        <Route exact path={"/News"} component={News} />
-        <Route exact path={"/SingalNews"} component={Singalnews} />
-        <Route exact path={"/Singleproduct"} component={Singleproduct} />
-        <Route exact path={"/Home1"} component={Home1} />
-        <Route exact path={"/Cart"} component={Cart} />
-        <Route exact path={"/Checkout"} component={Checkout} />
-        <Route exact path={"/A404"} component={A404} />
+      <SnackbarProvider maxSnack={3}>
+        <Provider store={store}>
+          <PersistGate loading={null} persistor={persistor}>
+            <Header />
+            <Switch>
+              <PublicRoute exact path={"/"} component={Home} />
+              <PublicRoute exact path={"/About"} component={About} />
+              <PublicRoute exact path={"/Contact"} component={Contact} />
+              <PublicRoute exact path={"/Shop"} component={Shop} />
+              <PublicRoute exact path={"/News"} component={News} />
+              <PublicRoute exact path={"/Singleproduct"} component={Singleproduct} />
+              <PublicRoute exact path={"/Cart"} component={Cart} />
+              <PublicRoute exact path={"/Checkout"} component={Checkout} />
+              <PublicRoute exact path={"/A404"} component={A404} />
+              <PublicRoute exact path={"/Login"} component={Login} />
+              {/* <PublicRoute exact path={"/Doctor"} component={Admin} /> */}
+              <PublicRoute exact path={"/Doctor"} component={Doctor} />
+              
+              {/* <Layout> */}
+              {/* <Route path={'/Doctor'} exact component={Doctor} /> */}
+              {/* </Layout> */}
 
-      </Switch>
-      <Footer />
+
+
+
+            </Switch>
+            {/* <Footer /> */}
+          </PersistGate>
+        </Provider>
+      </SnackbarProvider>
+
+      {/* <Provider store={store}>
+        <Layout>
+          <Switch>
+            <Route path={'/Doctor'} exact component={Doctor} />
+          </Switch>
+        </Layout>
+      </Provider> */}
+
+
     </div>
   );
 }

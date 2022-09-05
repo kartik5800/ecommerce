@@ -1,7 +1,17 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import Alert from '../Alert/Alert';
+import { useDispatch, useSelector } from 'react-redux';
+import { LogoutUser } from '../../Redux/Action/auth.action';
 
 function Header(props) {
+    let auth = useSelector(state => state.auth)
+    // console.log(auth);
+
+    const dispatch = useDispatch();
+    const handleLogout = () => {
+        dispatch(LogoutUser())
+    }
     return (
         <div className="top-header-area" id="sticker">
             <div className="container">
@@ -22,17 +32,6 @@ function Header(props) {
                                     <li className="current-list-item">
                                         {/* <a href="#">Home</a> */}
                                         <NavLink exact to={'/'} className='current-list-item'>Home</NavLink>
-                                        <ul className="sub-menu">
-                                            <li>
-                                                {/* <a href="index.html">Static Home</a> */}
-                                                <NavLink exact to={'/'} className='current-list-item'>Static Home</NavLink>
-
-                                            </li>
-                                            <li>
-                                                {/* <a href="index_2.html">Slider Home</a> */}
-                                                <NavLink exact to={'/Home1'} className='current-list-item'>Slider Home</NavLink>
-                                            </li>
-                                        </ul>
                                     </li>
                                     <li>
                                         {/* <a href="about.html">About</a> */}
@@ -52,6 +51,10 @@ function Header(props) {
                                             <li>
                                                 {/* <a href="cart.html">Cart</a> */}
                                                 <NavLink exact to={'/Cart'} className='current-list-item'>Cart</NavLink>
+                                            </li>
+                                            <li>
+                                                {/* <a href="cart.html">Cart</a> */}
+                                                <NavLink exact to={'/Admin'} className='current-list-item'>Admin</NavLink>
                                             </li>
                                             <li>
                                                 {/* <a href="checkout.html">Check Out</a> */}
@@ -74,16 +77,7 @@ function Header(props) {
                                     <li>
                                         {/* <a href="news.html">News</a> */}
                                         <NavLink exact to={'/News'} className='current-list-item'>News</NavLink>
-                                        <ul className="sub-menu">
-                                            <li>
-                                                {/* <a href="news.html">News</a> */}
-                                                <NavLink exact to={'/News'} className='current-list-item'>News</NavLink>
-                                            </li>
-                                            <li>
-                                                {/* <a href="single-news.html">Single News</a> */}
-                                                <NavLink exact to={'/SingalNews'} className='current-list-item'>Single News</NavLink>
-                                            </li>
-                                        </ul>
+                                        
                                     </li>
                                     <li>
 
@@ -119,13 +113,25 @@ function Header(props) {
 
                                             <a className="mobile-hide search-bar-icon" href="#"><i className="fas fa-search" /></a>
 
+                                            {
+                                                auth.user === null ?
+                                                    <NavLink to={"/Login"} className="current-list-item">
+                                                        <span className="current-list-item">Login/ Signup</span>
+                                                    </NavLink>
+                                                    : <NavLink onClick={() => handleLogout()} to={"/Login"} className="current-list-item">
+                                                        <span className="current-list-item">Logout</span>
+                                                    </NavLink>
+                                            }
+                                             <NavLink exact to={'/Doctor'} className='fas fa-shopping-cart'>admin</NavLink>
+ <Alert />
+
                                         </div>
                                     </li>
                                 </ul>
                             </nav>
-                            <a className="mobile-show search-bar-icon" href="#"><i className="fas fa-search" /></a>
-                            <div className="mobile-menu" />
-                            {/* menu end */}
+
+
+
                         </div>
                     </div>
                 </div>
