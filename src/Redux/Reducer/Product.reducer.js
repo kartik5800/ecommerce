@@ -2,43 +2,50 @@ import * as ActionTypes from "../ActionType"
 
 const initalState = {
     isLoading: false,
-    doctor: [],
+    product: [],
     error: ''
 }
 
 
 
-export const doctorReducer = (state = initalState, action) => {
+export const productReducer = (state = initalState, action) => {
     console.log(action.type, action.payload);
 
     switch (action.type) {
-        case ActionTypes.GET_DOCTOR:
+        case ActionTypes.GET_PRODUCT:
             return {
                 ...state,
                 isLoading: false,
-                doctor: action.payload,
+                product: action.payload,
                 error: ''
             }
-        case ActionTypes.POST_DOCTOR:
-            return {
-                ...state,
-                isLoading: false,
-                doctor: state.doctor.concat(action.payload),
-                error: ''
-            }
-            case ActionTypes.DELETE_DOCTOR:
+            case ActionTypes.GET_SINGLE_PRODUCT:
                 return {
                     ...state,
                     isLoading: false,
-                    doctor: state.doctor.filter((l) => l.id !== action.payload),
+                    product: state.product.filter((l) => l.id !== action.payload),
+                    error: ''
+                }
+        case ActionTypes.POST_PRODUCT:
+            return {
+                ...state,
+                isLoading: false,
+                product: state.product.concat(action.payload),
+                error: ''
+            }
+            case ActionTypes.DELETE_PRODUCT:
+                return {
+                    ...state,
+                    isLoading: false,
+                    product: state.product.filter((l) => l.id !== action.payload),
                     error: ''
                 }
 
-                case ActionTypes.UPDATE_DOCTOR:
+                case ActionTypes.UPDATE_PRODUCT:
                 return {
                     ...state,
                     isLoading: false,
-                    doctor: state.doctor.map((l) => {
+                    product: state.product.map((l) => {
                         if (l.id === action.payload.id) {
                             return action.payload
                         }else{
@@ -49,7 +56,7 @@ export const doctorReducer = (state = initalState, action) => {
                 }
 
 
-                case ActionTypes.LOADING_DOCTOR:
+                case ActionTypes.LOADING_PRODUCT:
             return {
                 ...state,
                 isLoading: true,
@@ -57,11 +64,11 @@ export const doctorReducer = (state = initalState, action) => {
             }
 
 
-            case ActionTypes.ERROE_DOCTOR:
+            case ActionTypes.ERROE_PRODUCT:
             return {
                 ...state,
                 isLoading: false,
-                doctor: [],
+                product: [],
                 errors: action.payload
             }
         default:

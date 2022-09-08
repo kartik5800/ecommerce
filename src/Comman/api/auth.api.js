@@ -1,10 +1,14 @@
 import { createUserWithEmailAndPassword, onAuthStateChanged, sendEmailVerification, signInWithEmailAndPassword, signOut, GoogleAuthProvider, signInWithPopup, sendPasswordResetEmail } from "firebase/auth";
 import { auth } from "../../firebase";
+import { Redirect, Route, history, NavLink } from 'react-router-dom';
+
 
 
 
 
 export const signupApi = (data) => {
+
+
   console.log(data);
   return new Promise((resolve, reject) => {
 
@@ -59,9 +63,9 @@ export const ForgotAPI = (data) => {
   return new Promise((resolve, reject) => {
     sendPasswordResetEmail(auth, data.email)
 
-    .then((user) => {
-      resolve({payload: "Please Check Your Email"})    
-    })
+      .then((user) => {
+        resolve({ payload: "Please Check Your Email" })
+      })
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
@@ -69,8 +73,8 @@ export const ForgotAPI = (data) => {
         if (error.code.localeCompare("auth/user-not-found") === 0) {
           reject({ payload: "user not found" })
         }
-        
-        reject({payload:errorCode})
+
+        reject({ payload: errorCode })
 
 
       })
@@ -78,35 +82,44 @@ export const ForgotAPI = (data) => {
 }
 
 export const loginApi = (data) => {
-  console.log(data);
-  return new Promise((resolve, reject) => {
+  console.log('data', data);
+ 
 
-    signInWithEmailAndPassword(auth, data.email, data.password)
 
-      .then((user) => {
-        if (user.user.emailVerified) {
-          resolve({ payload: user.user });
-        }
-        else {
-          reject({ payload: "please verfity your email" });
-        }
-        // console.log(user);        
-      })
+  if (data.email === "kartik@gmail.com" && data.password === "123456") {
+    alert("welcome admin")
+   
+    
+  } else {
+    return new Promise((resolve, reject) => {
+      signInWithEmailAndPassword(auth, data.email, data.password)
+
+        .then((user) => {
+          if (user.user.emailVerified) {
+            resolve({ payload: user.user });
+          }
+          else {
+            reject({ payload: "please verfity your email" });
+          }
+          // console.log(user);        
+        })
+    
 
       .catch((error) => {
-        if (error.code.localeCompare("auth/wrong-password") === 0) {
-          reject({ payload: "wrong email or password" })
-        }
-        else if (error.code.localeCompare("auth/user-not-found") === 0) {
-          reject({ payload: "user not found" })
-        }
-        else {
-          reject({ payload: error.code });
-        }
-        // console.log(error); 
-      });
+      if (error.code.localeCompare("auth/wrong-password") === 0) {
+        reject({ payload: "wrong email or password" })
+      }
+      else if (error.code.localeCompare("auth/user-not-found") === 0) {
+        reject({ payload: "user not found" })
+      }
+      else {
+        reject({ payload: error.code });
+      }
+      // console.log(error); 
+    });
 
   })
+}
 }
 
 export const googleLoginAPI = () => {

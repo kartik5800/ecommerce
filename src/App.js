@@ -18,9 +18,7 @@ import { PersistGate } from 'redux-persist/integration/react';
 import store, { persistor } from './Redux/Store';
 import PublicRoute from './Routes/PublicRoute';
 import Login from './container/Login-signup/Login';
-// import Doctor from './Admin/Container/Doctor';
-import Layout from './Admin/Component/Layout/Layout'
-import Doctor from './container/Home/Doctor';
+import { Admin } from "../src/Admin/Container/Admin";
 
 function App() {
   return (
@@ -28,7 +26,7 @@ function App() {
       <SnackbarProvider maxSnack={3}>
         <Provider store={store}>
           <PersistGate loading={null} persistor={persistor}>
-            <Header />
+
             <Switch>
               <PublicRoute exact path={"/"} component={Home} />
               <PublicRoute exact path={"/About"} component={About} />
@@ -40,31 +38,12 @@ function App() {
               <PublicRoute exact path={"/Checkout"} component={Checkout} />
               <PublicRoute exact path={"/A404"} component={A404} />
               <PublicRoute exact path={"/Login"} component={Login} />
-              {/* <PublicRoute exact path={"/Doctor"} component={Admin} /> */}
-              <PublicRoute exact path={"/Doctor"} component={Doctor} />
-              
-              {/* <Layout> */}
-              {/* <Route path={'/Doctor'} exact component={Doctor} /> */}
-              {/* </Layout> */}
-
-
-
-
+              <Route exact path={"/Admin"} component={Admin} />
             </Switch>
-            {/* <Footer /> */}
+
           </PersistGate>
         </Provider>
       </SnackbarProvider>
-
-      {/* <Provider store={store}>
-        <Layout>
-          <Switch>
-            <Route path={'/Doctor'} exact component={Doctor} />
-          </Switch>
-        </Layout>
-      </Provider> */}
-
-
     </div>
   );
 }
