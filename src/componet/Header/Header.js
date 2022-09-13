@@ -1,17 +1,28 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import Alert from '../Alert/Alert';
 import { useDispatch, useSelector } from 'react-redux';
 import { LogoutUser } from '../../Redux/Action/auth.action';
+import Badge from '@mui/material/Badge';
 
 function Header(props) {
+    const [anchorEl, setAnchorEl] = useState(null);
     let auth = useSelector(state => state.auth)
     // console.log(auth);
 
+    const cart = useSelector(state=> state.carts);
     const dispatch = useDispatch();
+
+
     const handleLogout = () => {
         dispatch(LogoutUser())
     }
+
+
+    const handleClick = (event) => {
+        setAnchorEl(event.currentTarget);
+    };
+
     return (
         <div className="top-header-area" id="sticker">
             <div className="container">
@@ -81,7 +92,7 @@ function Header(props) {
                                     <li>
                                         {/* <a href="news.html">News</a> */}
                                         <NavLink exact to={'/News'} className='current-list-item'>News</NavLink>
-                                        
+
                                     </li>
                                     <li>
 
@@ -106,14 +117,28 @@ function Header(props) {
                                             </li>
                                             <li>
                                                 {/* <a href="cart.html">Cart</a> */}
-                                                <NavLink exact to={'/Cart'} className='current-list-item'>Cart</NavLink>
+                                                {/* <NavLink exact to={'/Cart'} className='current-list-item'>Cart</NavLink> */}
+
+
+                                                
                                             </li>
                                         </ul>
                                     </li>
                                     <li>
                                         <div className="header-icons">
+                                        <Badge badgeContent={"7"} color="primary"
+                                                    id="basic-button"
+                                                    // aria-controls={open ? 'basic-menu' : undefined}
+                                                    aria-haspopup="true"
+                                                    // aria-expanded={open ? 'true' : undefined}
+                                                    onClick={handleClick}
+                                               
+                                                >
+                                                    <i class="fa-solid fa-cart-shopping text-light" style={{ fontSize: 25, cursor: "pointer" }}></i>
+                                                    <NavLink exact to={'/Cart'} className='fas fa-shopping-cart'></NavLink>
+                                                </Badge>
                                             {/* <a className="shopping-cart" href="cart.html"><i className="fas fa-shopping-cart" /></a> */}
-                                            <NavLink exact to={'/Cart'} className='fas fa-shopping-cart'>Cart</NavLink>
+                                            
 
                                             <a className="mobile-hide search-bar-icon" href="#"><i className="fas fa-search" /></a>
 
@@ -126,8 +151,8 @@ function Header(props) {
                                                         <span className="current-list-item">Logout</span>
                                                     </NavLink>
                                             }
-                                            
- <Alert />
+
+                                            <Alert />
 
                                         </div>
                                     </li>

@@ -1,9 +1,53 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { productdata, singleproductdata } from '../../Redux/Action/Product.action';
+import { params, useParams } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux';
+import {
+  collection,
+  addDoc,
+  getDocs,
+  deleteDoc,
+  doc,
+  updateDoc,
+  getDoc,
+} from "firebase/firestore";
+import { db, storage } from "../../firebase";
+
 
 
 function Singleproduct(props) {
+  const [data, setData] = useState([]);
+  console.log("DATA single product", data[0]);
 
- 
+  const product = useSelector((state) => state.Product);
+  console.log("product", product);
+
+  const { id } = useParams();
+
+
+  const dispatch = useDispatch();
+
+
+
+  const compare = () => {
+    let comparedata = product.product.filter((e) => {
+      return e.id == id
+    });
+
+    setData(comparedata);
+
+  }
+
+  // add data
+
+
+
+
+  useEffect(() => {
+    compare();
+  }, [id])
+
+
 
 
 
@@ -17,6 +61,7 @@ function Singleproduct(props) {
               <div className="search-bar">
                 <div className="search-bar-tablecell">
                   <h3>Search For:</h3>
+
                   <input type="text" placeholder="Keywords" />
                   <button type="submit">Search <i className="fas fa-search" /></button>
                 </div>
@@ -34,6 +79,9 @@ function Singleproduct(props) {
               <div className="breadcrumb-text">
                 <p>See more Details</p>
                 <h1>Single Product</h1>
+                <pre>aaaa</pre>
+
+
               </div>
             </div>
           </div>
@@ -41,38 +89,44 @@ function Singleproduct(props) {
       </div>
       {/* end breadcrumb section */}
       {/* single product */}
-      <div className="single-product mt-150 mb-150">
-        <div className="container">
-          <div className="row">
-            <div className="col-md-5">
-              <div className="single-product-img">
-                <img src="assets/img/products/product-img-5.jpg" alt />
-              </div>
-            </div>
-            <div className="col-md-7">
-              <div className="single-product-content">
-                <h3>Green apples have polyphenols</h3>
-                <p className="single-product-pricing"><span>Per Kg</span> $50</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta sint dignissimos, rem commodi cum voluptatem quae reprehenderit repudiandae ea tempora incidunt ipsa, quisquam animi perferendis eos eum modi! Tempora, earum.</p>
-                <div className="single-product-form">
-                  <form action="index.html">
-                    <input type="number" placeholder={0} />
-                  </form>
-                  <a href="cart.html" className="cart-btn"><i className="fas fa-shopping-cart" /> Add to Cart</a>
-                  <p><strong>Categories: </strong>Fruits, Organic</p>
+      {data && data.map((ele, index) => {
+        return (
+          <div className="single-product mt-150 mb-150">
+            <div className="container">
+              <div className="row">
+                <div className="col-md-5">
+                  <div className="single-product-img">
+                    <img src={ele.url} alt />
+                  </div>
                 </div>
-                <h4>Share:</h4>
-                <ul className="product-share">
-                  <li><a href><i className="fab fa-facebook-f" /></a></li>
-                  <li><a href><i className="fab fa-twitter" /></a></li>
-                  <li><a href><i className="fab fa-google-plus-g" /></a></li>
-                  <li><a href><i className="fab fa-linkedin" /></a></li>
-                </ul>
+
+                <div className="col-md-7">
+                  <div className="single-product-content">
+                    <h3>{ele.product_name}s</h3>
+                    <p className="single-product-pricing"><span>Price Per Unit.</span>{ele.price}</p>
+                    <p>{ele.description}</p>
+                    <div className="single-product-form">
+                      <form action="index.html">
+                        <input type="number" placeholder={0} />
+                      </form>
+                      <a href="cart.html" className="cart-btn" ><i className="fas fa-shopping-cart" /> Add to Cart</a>
+                      <p><strong>Categories: </strong>{ele.category}</p>
+                    </div>
+                    <h4>Share:</h4>
+                    <ul className="product-share">
+                      <li><a href><i className="fab fa-facebook-f" /></a></li>
+                      <li><a href><i className="fab fa-twitter" /></a></li>
+                      <li><a href><i className="fab fa-google-plus-g" /></a></li>
+                      <li><a href><i className="fab fa-linkedin" /></a></li>
+                    </ul>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </div>
+        )
+      })}
+
       {/* end single product */}
       {/* more products */}
       <div className="more-products mb-150">
@@ -125,3 +179,18 @@ function Singleproduct(props) {
 }
 
 export default Singleproduct;
+
+
+
+
+
+
+
+
+
+// // useEffect(() => {
+// //  const data1 =  dispatch(singleproductdata(data.id))
+// //   setData(data);
+// // console.log("single product",data1);
+// // }, [id])
+

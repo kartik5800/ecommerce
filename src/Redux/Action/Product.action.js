@@ -43,6 +43,7 @@ export const postproduct = (data) => async (dispatch) => {
           category: data.category,
           company_name: data.company_name,
           price: data.price,
+          qnty: data.qnty,
           model_no: data.model_no,
           description: data.description,
           url: url,
@@ -57,6 +58,7 @@ export const postproduct = (data) => async (dispatch) => {
             category: data.category,
             company_name: data.company_name,
             price: data.price,
+            qnty: data.qnty,
             model_no: data.model_no,
             description: data.description,
             url: url,
@@ -147,53 +149,54 @@ export const deleteproduct = (data) => async (dispatch) => {
 
 
 
-
-// get single product--------------------------------------------------------------
-// export const singleproductdata = (data) => async (dispatch) => {
-//   dispatch(loadingproduct());
-//   try {
-//     let data = [];
-//     const getref = await getDoc(collection(db, "product","qgqN9i1xbG698fF4xk3q"));
-//     getref.forEach((doc) => {
-//       data.push({ id: doc.id, ...doc.data() });
-//       console.log("id",doc.id);
-//     });
-//     dispatch({ type: ActionTypes.GET_SINGLE_PRODUCT, payload: data });
-//   } catch (error) {
-//     console.log(error);
-//   }
-// };
-
-
-export const singleproductdata = (id) => async (dispatch) => {
-  dispatch(loadingproduct());
+export const singleproductdata = (data,id) => async (dispatch) => {
+  console.log('id', data)
+  // dispatch(loadingproduct());
   try {
-    let data = [];
-    const getref = await getDoc(collection(db, "product" , `data.${id}`));
-    getref.forEach((doc) => {
-      data.push({ id: doc.id, ...doc.data() });
-      console.log("idddddd",`data.${id}`);
-    });
+    let data1 = [];
+    const docRef = doc(db, "product",`${id}`);
+    const docSnap = await getDoc(docRef);
+    console.log("qqqqqqqqqqqqqqqqqqqq",docRef,docSnap);
+    
+    if (docSnap.exists()) {
+      console.log("Document data:", docSnap.data());
+      data1.push(docSnap.data());
+      console.log('res data', data1)
+    } 
     dispatch({ type: ActionTypes.GET_SINGLE_PRODUCT, payload: data });
   } catch (error) {
-    console.log(error);
+    // console.log(error);
   }
 };
 
 
-// import { doc, getDoc } from "firebase/firestore";
-
-// const docRef = doc(db, "product", ${data.id});
-// const docSnap = await getDoc(docRef);
-
-// if (docSnap.exists()) {
-//   console.log("Document data:", docSnap.data());
-// } else {
-//   // doc.data() will be undefined in this case
-//   console.log("No such document!");
-// }
 
 
+
+
+
+// export const singleproductdata = (data) => async (dispatch) => {
+//   console.log('id', data)
+//   // dispatch(loadingproduct());
+//   try {
+//     let data1 = [];
+//     const docRef = doc(db, "product", data);
+//     const docSnap = await getDoc(docRef);
+//     console.log("qqqqqqqqqqqqqqqqqqqq",docRef,docSnap);
+    
+//     if (docSnap.exists()) {
+//       console.log("Document data:", docSnap.data());
+//       data1.push(docSnap.data());
+//       console.log('res data', data1)
+//     } else {
+//       // doc.data() will be undefined in this case
+//       console.log("No such document!");
+//     }
+//     dispatch({ type: ActionTypes.GET_SINGLE_PRODUCT, payload: data });
+//   } catch (error) {
+//     // console.log(error);
+//   }
+// };
 
 
 

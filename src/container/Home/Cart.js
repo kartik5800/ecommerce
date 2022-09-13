@@ -60,22 +60,7 @@ function Cart(props) {
                   <td className="product-quantity"><input type="number" placeholder={0} /></td>
                   <td className="product-total">1</td>
                 </tr>
-                <tr className="table-body-row">
-                  <td className="product-remove"><a href="#"><i className="far fa-window-close" /></a></td>
-                  <td className="product-image"><img src="assets/img/products/product-img-2.jpg" alt /></td>
-                  <td className="product-name">Berry</td>
-                  <td className="product-price">$70</td>
-                  <td className="product-quantity"><input type="number" placeholder={0} /></td>
-                  <td className="product-total">1</td>
-                </tr>
-                <tr className="table-body-row">
-                  <td className="product-remove"><a href="#"><i className="far fa-window-close" /></a></td>
-                  <td className="product-image"><img src="assets/img/products/product-img-3.jpg" alt /></td>
-                  <td className="product-name">Lemon</td>
-                  <td className="product-price">$35</td>
-                  <td className="product-quantity"><input type="number" placeholder={0} /></td>
-                  <td className="product-total">1</td>
-                </tr>
+       
               </tbody>
             </table>
           </div>

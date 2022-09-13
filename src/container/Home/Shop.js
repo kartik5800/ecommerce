@@ -18,6 +18,7 @@ function Shop(props) {
     const dispatch = useDispatch();
     const [uid, setUid] = useState()
     const product = useSelector((state) => state.Product);
+    console.log("product111",product);
 
     const uniqueList = [
         "ALL",
@@ -130,7 +131,7 @@ function Shop(props) {
                                         <div className="single-product-item">
                                             <div className="product-image">
                                                 {/* <a href="single-product.html"><img src={val.url} alt="product image" width="200px" height="250px" /></a> */}
-                                                <Link to={"/Singleproduct"}><img src={val.url} alt="image" width="200px" height="250px" /></Link>
+                                                <Link to={`/Singleproduct/${val.id}`}><img src={val.url} alt="image" width="200px" height="250px" /></Link>
                                             </div>
                                             <h3>{val.product_name}</h3>
                                             <p className="product-price"><span>Per Kg</span> {val.price} </p>

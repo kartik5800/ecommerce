@@ -38,9 +38,12 @@ export const Admin = () => {
         category: yup.string().required("please enter designation"),
         company_name: yup.string().required("please enter salary"),
         price: yup.string().required("please enter salary"),
+        qnty: yup.string().required("please enter salary"),
         model_no: yup.string().required("please enter salary"),
         description: yup.string().required("please enter salary"),
         file: yup.mixed().required("please select file"),
+      
+
     };
 
     let schema = yup.object().shape(product1);
@@ -52,6 +55,7 @@ export const Admin = () => {
             category: "",
             company_name: "",
             price: "",
+            qnty:"",
             model_no: "",
             description: "",
             file: "",
@@ -94,10 +98,7 @@ export const Admin = () => {
     };
 
 
-    const handlesingleshowdata =(id)=> {
-dispatch(singleproductdata(id));
-    }
-
+ 
 
 
 
@@ -118,6 +119,7 @@ dispatch(singleproductdata(id));
         { field: "category", headerName: "Category", width: 130 },
         { field: "company_name", headerName: "Company Name", width: 110 },
         { field: "price", headerName: "Price", width: 90 },
+        { field: "qnty", headerName: " Qnty", width: 60 },
         { field: "model_no", headerName: " Model No", width: 130 },
         { field: "description", headerName: "Description", width: 130 },
         {
@@ -142,12 +144,7 @@ dispatch(singleproductdata(id));
                         onClick={() => handleEdit(params)}
                         endIcon={<EditIcon />}>
                     </Button>
-                    <Button
-                        onClick={() => handlesingleshowdata(params.row)}
-                        endIcon={<EditIcon />}>
-                    </Button>
-                    
-                 
+
                 </>
             ),
         },
@@ -168,7 +165,6 @@ dispatch(singleproductdata(id));
 
     useEffect(() => {
         dispatch(productdata());
-        console.log("fdsgdfgdf", dispatch(productdata(), product));
         loadData();
     }, []);
 
@@ -191,6 +187,7 @@ dispatch(singleproductdata(id));
         console.log("deweewewewe", data, params);
     };
 
+ 
 
 
     const categorys = [
@@ -306,6 +303,19 @@ dispatch(singleproductdata(id));
                                     helperText={formik.errors.price}
                                     error={formik.errors.price ? true : false}
                                 />
+                                     <TextField
+                                    margin="dense"
+                                    id="qnty"
+                                    label="qnty"
+                                    type="qnty"
+                                    fullWidth
+                                    variant="standard"
+                                    onChange={formik.handleChange}
+                                    defaultValue={formik.values.qnty}
+                                    helperText={formik.errors.qnty}
+                                    error={formik.errors.qnty ? true : false}
+                                />
+                        
                                 <TextField
                                     margin="dense"
                                     id="model_no"
