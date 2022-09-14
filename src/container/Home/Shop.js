@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { productdata } from '../../Redux/Action/Product.action';
 import Navbar from "./Navbar";
+import { ADD } from '../../Redux/Action/Cart.action';
 
 
 
@@ -10,15 +11,16 @@ import Navbar from "./Navbar";
 
 function Shop(props) {
 
-    const [data, setData] = useState([]);
-
-
-
     const [menuData, setMenuData] = useState([]);
     const dispatch = useDispatch();
     const [uid, setUid] = useState()
     const product = useSelector((state) => state.Product);
     console.log("product111",product);
+
+
+    // const [finalData, setfinalData] = useState(product);
+    // // console.log(data);
+  
 
     const uniqueList = [
         "ALL",
@@ -33,20 +35,9 @@ function Shop(props) {
 
 
     useEffect(() => {
-        const data = dispatch(productdata());
-        console.log("fdsgdfgdf", data, product);
-
-        console.log("product name", product); //------------------------
-        setData(product.Product);
-        //-------------------------
+        dispatch(productdata());
         setMenuData(product.product)
-        console.log('data2', product.product);
     }, []);
-
-
-
-
-
 
 
 
@@ -69,6 +60,16 @@ function Shop(props) {
 
 
     let finalData = menuData.length > 0 ? menuData : product.product;
+
+
+  
+
+  
+  
+    const send = (e)=>{
+      console.log("e",e);
+      dispatch(ADD(e));
+    }
 
 
     return (
@@ -136,16 +137,13 @@ function Shop(props) {
                                             <h3>{val.product_name}</h3>
                                             <p className="product-price"><span>Per Kg</span> {val.price} </p>
                                             {/* <a href="cart.html" className="cart-btn"><i className="fas fa-shopping-cart" /> Add to Cart</a> */}
-                                            <Link to={"/Cart"} className="cart-btn"><i className="fas fa-shopping-cart" />Add to Cart</Link>
+                                            {/* <Link to={`/Cart/${val.id}`} className="cart-btn" onClick={()=> send(val)}><i className="fas fa-shopping-cart" />Add to Cart</Link> */}
+                                            <button className='cart-btn' onClick={()=> send(val)}>add to cart</button>
                                         </div>
                                     </div>
                                 </>
                             )
                         })}
-
-
-
-
 
 
                     </div>

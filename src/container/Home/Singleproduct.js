@@ -1,18 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { productdata, singleproductdata } from '../../Redux/Action/Product.action';
-import { params, useParams } from 'react-router-dom'
+import {Link, useParams} from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux';
-import {
-  collection,
-  addDoc,
-  getDocs,
-  deleteDoc,
-  doc,
-  updateDoc,
-  getDoc,
-} from "firebase/firestore";
-import { db, storage } from "../../firebase";
-
 
 
 function Singleproduct(props) {
@@ -24,9 +13,7 @@ function Singleproduct(props) {
 
   const { id } = useParams();
 
-
-  const dispatch = useDispatch();
-
+  console.log(id);
 
 
   const compare = () => {
@@ -79,9 +66,6 @@ function Singleproduct(props) {
               <div className="breadcrumb-text">
                 <p>See more Details</p>
                 <h1>Single Product</h1>
-                <pre>aaaa</pre>
-
-
               </div>
             </div>
           </div>
@@ -109,7 +93,8 @@ function Singleproduct(props) {
                       <form action="index.html">
                         <input type="number" placeholder={0} />
                       </form>
-                      <a href="cart.html" className="cart-btn" ><i className="fas fa-shopping-cart" /> Add to Cart</a>
+                      {/* <a href="cart.html" className="cart-btn" ><i className="fas fa-shopping-cart" /> Add to Cart</a> */}
+                      <Link to={`/Cart/${ele.id}`} className="cart-btn"><i className="fas fa-shopping-cart" />Add to Cart</Link>
                       <p><strong>Categories: </strong>{ele.category}</p>
                     </div>
                     <h4>Share:</h4>
