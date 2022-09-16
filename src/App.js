@@ -19,6 +19,8 @@ import store, { persistor } from './Redux/Store';
 import PublicRoute from './Routes/PublicRoute';
 import Login from './container/Login-signup/Login';
 import { Admin } from "../src/Admin/Container/Admin";
+import { Admin2 } from "../src/Admin/Container/Admin2";
+import PrivateRoute from './Routes/PrivateRoute';
 
 function App() {
   return (
@@ -39,6 +41,7 @@ function App() {
               <PublicRoute exact path={"/A404"} component={A404} />
               <PublicRoute exact path={"/Login"} component={Login} />
               <Route exact path={"/Admin"} component={Admin} />
+              <Route exact path={"/Admin2"} component={Admin2} />
             </Switch>
 
           </PersistGate>

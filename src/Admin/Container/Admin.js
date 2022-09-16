@@ -16,14 +16,22 @@ import EditIcon from "@mui/icons-material/Edit";
 import { height } from '@mui/system';
 import { Box, FormControl, InputLabel, Select } from '@mui/material';
 import MenuItem from '@mui/material/MenuItem';
+import { categorydata } from '../../Redux/Action/category.action';
 
 export const Admin = () => {
     const [open, setOpen] = useState(false);
     const [data, setData] = useState([]);
     const [Update, setUpdate] = useState();
+    const [categoryData, setCategoryData] = useState([]);
     const dispatch = useDispatch();
     const [uid, setUid] = useState()
     const product = useSelector((state) => state.Product);
+
+    console.log("product",product);
+    const category = useSelector((state) => state.category)
+
+
+    console.log("category",category.category );
 
     const handleClickOpen = () => {
         setOpen(true);
@@ -190,26 +198,17 @@ export const Admin = () => {
  
 
 
-    const categorys = [
-        {
-            value: 'MOBILE',
-            label: 'MOBILE',
-        },
-        {
-            value: 'LAPTOP',
-            label: 'LAPTOP',
-        },
-        {
-            value: 'HOME APPLIANCES',
-            label: 'HOME APPLIANCES',
-        },
-        {
-            value: 'TELIVISION',
-            label: 'TELIVISION',
-        },
-    ];
+
+    useEffect(() => {
+        dispatch(categorydata());
+        setCategoryData(category.category)
+        console.log("setCategoryData",setCategoryData);
+    }, []);
 
 
+    const categorys = category.category;
+
+console.log("categorys",categorys);
 
 
 
@@ -225,6 +224,36 @@ export const Admin = () => {
                     <Formik value={formik}>
                         <Form onSubmit={formik.handleSubmit}>
                             <DialogContent>
+                            <Box
+                                    component="form"
+                                    sx={{
+                                        '& .MuiTextField-root': { m: 1, width: '100%' },
+                                    }}
+                                    noValidate
+                                    autoComplete="off"
+                                >
+                                    <div>
+                                        <TextField
+                                            id="category"
+                                            select
+                                            name='category'
+                                            label="Select"
+                                            onChange={formik.handleChange}
+                                            // onChange={handleChange1}
+                                            defaultValue={formik.values.category}
+                                            helperText={formik.errors.category}
+                                            error={formik.errors.category ? true : false}>
+                                            {/* <MenuItem value="select">
+                                            </MenuItem> */}
+                                            {categorys.map((option) => (
+                                                <MenuItem key={option.id } value={option.category_name}>
+                                                    {option.category_name}
+                                                </MenuItem>
+                                            ))}
+                                        </TextField>
+                                    </div>
+                                </Box>
+                                
                                 <TextField
                                     margin="dense"
                                     id="product_name"
@@ -249,35 +278,7 @@ export const Admin = () => {
                                     helperText={formik.errors.category}
                                     error={formik.errors.category ? true : false}
                                 /> */}
-                                <Box
-                                    component="form"
-                                    sx={{
-                                        '& .MuiTextField-root': { m: 1, width: '100%' },
-                                    }}
-                                    noValidate
-                                    autoComplete="off"
-                                >
-                                    <div>
-                                        <TextField
-                                            id="category"
-                                            select
-                                            name='category'
-                                            label="Select"
-                                            onChange={formik.handleChange}
-                                            // onChange={handleChange1}
-                                            defaultValue={formik.values.category}
-                                            helperText={formik.errors.category}
-                                            error={formik.errors.category ? true : false}>
-                                            {/* <MenuItem value="select">
-                                            </MenuItem> */}
-                                            {categorys.map((option) => (
-                                                <MenuItem key={option.value} value={option.value}>
-                                                    {option.label}
-                                                </MenuItem>
-                                            ))}
-                                        </TextField>
-                                    </div>
-                                </Box>
+                                
 
                                 <TextField
                                     margin="dense"

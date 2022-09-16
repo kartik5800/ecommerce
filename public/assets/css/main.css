@@ -2413,8 +2413,8 @@ ul.social-link-team li a {
 }
 
 .product-image img {
-  width: 90%;
-  border-radius: 5px;
+  width: 100%;
+  border-radius: 10px;
   margin-bottom: 20px;
 }
 

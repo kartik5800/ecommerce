@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { productdata } from '../../Redux/Action/Product.action';
+import { categorydata } from '../../Redux/Action/category.action'
 import Navbar from "./Navbar";
 import { ADD } from '../../Redux/Action/Cart.action';
 
@@ -12,11 +13,14 @@ import { ADD } from '../../Redux/Action/Cart.action';
 function Shop(props) {
 
     const [menuData, setMenuData] = useState([]);
+    const [categoryData, setCategoryData] = useState([]);
     const dispatch = useDispatch();
     const [uid, setUid] = useState()
     const product = useSelector((state) => state.Product);
     console.log("product111",product);
 
+    const category = useSelector((state) => state.category);
+console.log("category",category);
 
     // const [finalData, setfinalData] = useState(product);
     // // console.log(data);
@@ -37,6 +41,12 @@ function Shop(props) {
     useEffect(() => {
         dispatch(productdata());
         setMenuData(product.product)
+    }, []);
+
+
+    useEffect(() => {
+        dispatch(categorydata());
+        setCategoryData(category.category)
     }, []);
 
 

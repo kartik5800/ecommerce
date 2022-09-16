@@ -1,7 +1,66 @@
 import React from 'react';
+import { useState } from 'react';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
+import { categorydata } from '../../Redux/Action/category.action';
+import Slider from "react-slick";
 
 function Home(props) {
+
+
+    const [categoryData, setCategoryData] = useState([]);
+    const dispatch = useDispatch();
+    const [uid, setUid] = useState()
+
+
+    const category = useSelector((state) => state.category);
+    console.log("category", category);
+
+
+    useEffect(() => {
+        dispatch(categorydata());
+        setCategoryData(category.category)
+    }, []);
+
+
+    const settings = {
+        // dots: true,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        initialSlide: 0,
+        autoplay: true,
+        autoplaySpeed: 2000,
+        responsive: [
+            {
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 3,
+                    infinite: true,
+                    dots: true
+                }
+            },
+            {
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 2,
+                    initialSlide: 2
+                }
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            }
+        ]
+    };
+
     return (
         <div>
             <div className="search-area">
@@ -83,6 +142,9 @@ function Home(props) {
             </div>
             {/* end features list section */}
             {/* product section */}
+
+
+
             <div className="product-section mt-150 mb-150">
                 <div className="container">
                     <div className="row">
@@ -93,38 +155,26 @@ function Home(props) {
                             </div>
                         </div>
                     </div>
-                    <div className="row">
-                        <div className="col-lg-4 col-md-6 text-center">
-                            <div className="single-product-item">
-                                <div className="product-image">
-                                    <a href="single-product.html"><img src="assets/img/products/product-img-1.jpg" alt /></a>
-                                </div>
-                                <h3>Strawberry</h3>
-                                <p className="product-price"><span>Per Kg</span> 85$ </p>
-                                <a href="cart.html" className="cart-btn"><i className="fas fa-shopping-cart" /> Add to Cart</a>
-                            </div>
-                        </div>
-                        <div className="col-lg-4 col-md-6 text-center">
-                            <div className="single-product-item">
-                                <div className="product-image">
-                                    <a href="single-product.html"><img src="assets/img/products/product-img-2.jpg" alt /></a>
-                                </div>
-                                <h3>Berry</h3>
-                                <p className="product-price"><span>Per Kg</span> 70$ </p>
-                                <a href="cart.html" className="cart-btn"><i className="fas fa-shopping-cart" /> Add to Cart</a>
-                            </div>
-                        </div>
-                        <div className="col-lg-4 col-md-6 offset-md-3 offset-lg-0 text-center">
-                            <div className="single-product-item">
-                                <div className="product-image">
-                                    <a href="single-product.html"><img src="assets/img/products/product-img-3.jpg" alt /></a>
-                                </div>
-                                <h3>Lemon</h3>
-                                <p className="product-price"><span>Per Kg</span> 35$ </p>
-                                <a href="cart.html" className="cart-btn"><i className="fas fa-shopping-cart" /> Add to Cart</a>
-                            </div>
-                        </div>
-                    </div>
+
+                    <Slider {...settings}>
+
+                        {
+                            category && category.category.map((cat, index) => {
+                                return (
+                                    <div className="p-3 text-center">
+                                        <div className="single-product-item">
+                                            <div className="product-image">
+                                                <a href="single-product.html"><img src={cat.url} alt={cat.url} height="300px" width="500px" /></a>
+                                            </div>
+                                            <h3>{cat.category_name}</h3>
+                                            <a href="cart.html" className="cart-btn">View All Product</a>
+                                        </div>
+                                    </div>
+                                )
+                            })
+                        }
+
+                    </Slider>
                 </div>
             </div>
             {/* end product section */}
@@ -306,7 +356,7 @@ function Home(props) {
                 </div>
             </div>
             {/* end latest news */}
-     
+
         </div>
 
     );

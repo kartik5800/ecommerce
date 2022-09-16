@@ -3,7 +3,7 @@ import React from 'react';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { ADD, DLT, REMOVE } from '../../Redux/Action/Cart.action';
 
 
@@ -17,8 +17,7 @@ function Cart(props) {
 
   const dispatch = useDispatch();
 
-  const { id } = useParams();
-  console.log("cart id", id);
+
 
 
   const dlt = (id) => {
@@ -26,7 +25,6 @@ function Cart(props) {
   }
 
 
-  // add data
 
 
   const send = (e) => {
@@ -43,7 +41,7 @@ function Cart(props) {
 
   const total = () => {
     let price = 0;
-    cart.carts.map((ele, k) => {
+    cart.carts.map((ele, index) => {
       price = ele.price * ele.qnty + price
     });
     setPrice(price);
@@ -122,22 +120,19 @@ function Cart(props) {
 
                               <>
                                 <tr className="table-body-row">
-                                  {/* <p style={{ color: "red", fontSize: 20, cursor: "pointer" }} onClick={() => dlt(e.id)}>
-                                                                    <i className='fas fa-trash smalltrash'></i>
-                                                                </p> */}
-                                  <td className="product-remove"><a href="#" onClick={() => dlt(e.id)}><i className="fas fa-trash smalltrash" /></a></td>
-                                  <td className="product-image"><img src={e.url} alt /></td>
+                                  <td className="product-remove"><a style={{ color: "red", fontSize: 20, cursor: "pointer" }} href="#" onClick={() => dlt(e.id)}><i className="fas fa-trash smalltrash " /></a></td>
+                                  <td className="product-image"><img src={e.url} alt="image" height="100px" width="100px" /></td>
                                   <td className="product-name">{e.product_name}</td>
                                   <td className="product-price">{e.price}</td>
                                   <td className="product-quantity">
-                                    
-                                  <div className='justify-content-between align-items-center' style={{cursor:"pointer",background:"#ddd",color:"#111"}}>
-                                    {/* <input type="number" placeholder={0} /> */}
 
-                                    <span style={{ fontSize: 24 }} onClick={e.qnty <= 1 ? () => dlt(e.id) : () => remove(e)}>-</span>
-                                    <span style={{ fontSize: 22 }}>{e.qnty}</span>
-                                    <span style={{ fontSize: 24 }} onClick={() => send(e)}>+</span>
-</div>
+                                    <div className='justify-content-between align-items-center' style={{ cursor: "pointer", background: "#ddd", color: "#111" }}>
+                                      {/* <input type="number" placeholder={0} /> */}
+
+                                      <span style={{ fontSize: 25, fontWeight: 900 }} onClick={e.qnty <= 1 ? () => dlt(e.id) : () => remove(e)}>-</span>
+                                      <span style={{ fontSize: 22, padding: 20, fontSize: 25 }}>{e.qnty}</span>
+                                      <span style={{ fontSize: 25, fontWeight: 900 }} onClick={() => send(e)}>+</span>
+                                    </div>
                                   </td>
                                   <td className="product-total">{e.qnty}</td>
                                 </tr>
@@ -168,17 +163,18 @@ function Cart(props) {
                         </tr>
                         <tr className="total-data">
                           <td><strong>Shipping: </strong></td>
-                          <td>FREE</td>
+                          <td>1%</td>
                         </tr>
                         <tr className="total-data">
                           <td><strong>Total: </strong></td>
-                          <td>{price}</td>
+                          <td>{ price + (price * 1 / 100)}</td>
                         </tr>
                       </tbody>
                     </table>
                     <div className="cart-buttons">
-                      <a href="cart.html" className="boxed-btn">Update Cart</a>
-                      <a href="checkout.html" className="boxed-btn black">Check Out</a>
+                      <Link to={'/Shop'} className="boxed-btn">Continue Shoping</Link>
+                      {/* <a href="checkout.html" className="boxed-btn black">Check Out</a> */}
+                      <Link to={'/Checkout'} className="boxed-btn black">Check Out</Link>
                     </div>
                   </div>
                   <div className="coupon-section">
@@ -197,24 +193,16 @@ function Cart(props) {
 
             </div> :
 
-            <div className='card_details d-flex justify-content-center align-items-center' style={{ width: "24rem", padding: 10, position: "relative" }}>
-              <i className='fas fa-close smallclose'
-                onClick={handleClose}
-                style={{ position: "absolute", top: 2, right: 20, fontSize: 23, cursor: "pointer" }}></i>
-              <p style={{ fontSize: 22 }}>Your carts is empty</p>
-              <img src="./cart.gif" alt="" className='emptycart_img' style={{ width: "5rem", padding: 10 }} />
+            <div>
+              
+                <img src='http://almureed.ae/assets/website/images/empty-cart.gif' className='justify-content-center align-items-center'></img>
+              
             </div>
         }
 
 
 
       </div>
-
-
-
-
-
-
     </div>
 
 
