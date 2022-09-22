@@ -7,6 +7,7 @@ import { isLogin } from '../utilities';
 
 
 function PublicRoute({component : Component, restricted = false, ...rest}) {
+  console.log(isLogin(), restricted);
     return (
        <Route{...rest} render = {
         props=>(

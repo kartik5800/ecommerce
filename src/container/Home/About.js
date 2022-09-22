@@ -117,7 +117,7 @@ function About(props) {
                         <div className="col-lg-4 col-md-6">
                             <div className="single-team-item">
                                 <div className="team-bg team-bg-1" />
-                                <h4>Jimmy Doe <span>Farmer</span></h4>
+                                <h4>Stive jobes<span>Founder Of Apple</span></h4>
                                 <ul className="social-link-team">
                                     <li><a href="#" target="_blank"><i className="fab fa-facebook-f" /></a></li>
                                     <li><a href="#" target="_blank"><i className="fab fa-twitter" /></a></li>
@@ -128,7 +128,7 @@ function About(props) {
                         <div className="col-lg-4 col-md-6">
                             <div className="single-team-item">
                                 <div className="team-bg team-bg-2" />
-                                <h4>Marry Doe <span>Farmer</span></h4>
+                                <h4>Marry Doe <span>Founder Of LG</span></h4>
                                 <ul className="social-link-team">
                                     <li><a href="#" target="_blank"><i className="fab fa-facebook-f" /></a></li>
                                     <li><a href="#" target="_blank"><i className="fab fa-twitter" /></a></li>
@@ -139,7 +139,7 @@ function About(props) {
                         <div className="col-lg-4 col-md-6 offset-md-3 offset-lg-0">
                             <div className="single-team-item">
                                 <div className="team-bg team-bg-3" />
-                                <h4>Simon Joe <span>Farmer</span></h4>
+                                <h4>Mukesh Ambani<span>Founder Of Reliance</span></h4>
                                 <ul className="social-link-team">
                                     <li><a href="#" target="_blank"><i className="fab fa-facebook-f" /></a></li>
                                     <li><a href="#" target="_blank"><i className="fab fa-twitter" /></a></li>

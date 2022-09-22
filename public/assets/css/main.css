@@ -2092,7 +2092,7 @@ a.video-play-btn {
 }
 
 .abt-section .abt-text {
-  padding: 50px;
+  padding: 30px;
   padding-left: 30px;
 }
 
@@ -2119,7 +2119,7 @@ a.video-play-btn {
 .shop-banner {
   position: relative;
   background-color: #f5f5f5;
-  background-image: url(../img/1.jpg);
+  background-image: url(../img/samsung.jpg);
   background-size: cover;
   padding: 110px 0px 115px;
 }
@@ -2160,7 +2160,7 @@ a.video-play-btn {
 }
 
 .feature-bg:after {
-  background-image: url(../img/feature-bg.jpg);
+  background-image: url(../img/abt.jpg);
   position: absolute;
   right: 0;
   top: 0;
@@ -2176,15 +2176,15 @@ a.video-play-btn {
 }
 
 .team-bg-1 {
-  background-image: url(../img/team/team-1.jpg);
+  background-image: url(../img/stive.webp);
 }
 
 .team-bg-2 {
-  background-image: url(../img/team/team-2.jpg);
+  background-image: url(../img/lg.jpg);
 }
 
 .team-bg-3 {
-  background-image: url(../img/team/team-3.jpg);
+  background-image: url(../img/ambani.jpg);
 }
 
 .team-bg-4 {

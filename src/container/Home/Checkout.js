@@ -150,7 +150,6 @@ setData(null)
       </div>
       {/* end breadcrumb section */}
       {/* check out section */}
-      <h1>hello</h1>
       <div className="checkout-section mt-150 mb-150">
         <div className="container">
           <div className="row">

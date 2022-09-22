@@ -2,7 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { categorydata } from '../../Redux/Action/category.action';
 import Slider from "react-slick";
 
@@ -157,6 +157,7 @@ function Home(props) {
                     </div>
 
                     <Slider {...settings}>
+                        
 
                         {
                             category && category.category.map((cat, index) => {
@@ -164,10 +165,10 @@ function Home(props) {
                                     <div className="p-3 text-center">
                                         <div className="single-product-item">
                                             <div className="product-image">
-                                                <a href="single-product.html"><img src={cat.url} alt={cat.url} height="300px" width="500px" /></a>
+                                                <Link to={`/Shop`}><img src={cat.url} alt={cat.url} height="150px" width="150px" /></Link>
                                             </div>
                                             <h3>{cat.category_name}</h3>
-                                            <a href="cart.html" className="cart-btn">View All Product</a>
+                                            <Link to={`/Shop`} className="cart-btn">View All Product</Link>
                                         </div>
                                     </div>
                                 )
@@ -192,7 +193,7 @@ function Home(props) {
                                         </span>
                                     </div>
                                 </div>
-                                <img src="assets/img/a.jpg" alt />
+                                <img src="assets/img/home1.gif" alt />
                             </div>
                         </div>
                         {/*Content Column*/}
@@ -267,8 +268,10 @@ function Home(props) {
                 <div className="container">
                     <div className="row">
                         <div className="col-lg-6 col-md-12">
-                            <div className="abt-bg">
-                                <a href="https://www.youtube.com/watch?v=DBLlFWYcIGQ" className="video-play-btn popup-youtube"><i className="fas fa-play" /></a>
+                            <div className="">
+                                {/* <a href="https://www.youtube.com/watch?v=DBLlFWYcIGQ" className="video-play-btn popup-youtube"><i className="fas fa-play" /></a> */}
+                                <iframe width="580" height="400" src="https://www.youtube.com/embed/DRebBvNn_14" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                
                             </div>
                         </div>
                         <div className="col-lg-6 col-md-12">

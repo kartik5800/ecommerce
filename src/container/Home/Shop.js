@@ -142,13 +142,13 @@ console.log("category",category);
                                         <div className="single-product-item">
                                             <div className="product-image">
                                                 {/* <a href="single-product.html"><img src={val.url} alt="product image" width="200px" height="250px" /></a> */}
-                                                <Link to={`/Singleproduct/${val.id}`}><img src={val.url} alt="image" width="200px" height="250px" /></Link>
+                                                <Link to={`/Singleproduct/${val.id}`}><img src={val.url} alt="image" width="200px" height="220px" /></Link>
                                             </div>
                                             <h3>{val.product_name}</h3>
-                                            <p className="product-price"><span>Per Kg</span> {val.price} </p>
+                                            <p className="product-price"><span>Per Unit</span> {val.price} </p>
                                             {/* <a href="cart.html" className="cart-btn"><i className="fas fa-shopping-cart" /> Add to Cart</a> */}
                                             {/* <Link to={`/Cart/${val.id}`} className="cart-btn" onClick={()=> send(val)}><i className="fas fa-shopping-cart" />Add to Cart</Link> */}
-                                            <button className='cart-btn' onClick={()=> send(val)}>add to cart</button>
+                                            <a className='cart-btn' onClick={()=> send(val)}>add to cart</a>
                                         </div>
                                     </div>
                                 </>

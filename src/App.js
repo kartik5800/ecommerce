@@ -38,8 +38,8 @@ function App() {
               <PublicRoute exact path={"/Singleproduct/:id"} component={Singleproduct} />
               <PublicRoute exact path={"/Cart"} component={Cart} />
               <PublicRoute exact path={"/Checkout"} component={Checkout} />
+              <PublicRoute restricted={true} exact path={"/Login"} component={Login} />
               <PublicRoute exact path={"/A404"} component={A404} />
-              <PublicRoute exact path={"/Login"} component={Login} />
               <Route exact path={"/Admin"} component={Admin} />
               <Route exact path={"/Admin2"} component={Admin2} />
             </Switch>

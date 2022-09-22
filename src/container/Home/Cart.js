@@ -177,15 +177,7 @@ function Cart(props) {
                       <Link to={'/Checkout'} className="boxed-btn black">Check Out</Link>
                     </div>
                   </div>
-                  <div className="coupon-section">
-                    <h3>Apply Coupon</h3>
-                    <div className="coupon-form-wrap">
-                      <form action="index.html">
-                        <p><input type="text" placeholder="Coupon" /></p>
-                        <p><input type="submit" defaultValue="Apply" /></p>
-                      </form>
-                    </div>
-                  </div>
+                
                 </div>
               </div>
 

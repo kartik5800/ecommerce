@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { productdata, singleproductdata } from '../../Redux/Action/Product.action';
-import {Link, useParams} from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux';
+import { ADD } from '../../Redux/Action/Cart.action';
+import Slider from 'react-slick';
 
 
 function Singleproduct(props) {
   const [data, setData] = useState([]);
+  const dispatch = useDispatch();
   console.log("DATA single product", data[0]);
 
   const product = useSelector((state) => state.Product);
@@ -36,6 +39,50 @@ function Singleproduct(props) {
 
 
 
+
+  const send = (e) => {
+    console.log("e", e);
+    dispatch(ADD(e));
+  }
+
+
+
+  const settings = {
+    // dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    initialSlide: 0,
+    // autoplay: true,
+    // autoplaySpeed: 2000,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+          infinite: true,
+          dots: true
+        }
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          initialSlide: 2
+        }
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1
+        }
+      }
+    ]
+  };
 
 
   return (
@@ -80,7 +127,7 @@ function Singleproduct(props) {
               <div className="row">
                 <div className="col-md-5">
                   <div className="single-product-img">
-                    <img src={ele.url} alt />
+                    <img src={ele.url} alt={ele.url} height='370px' width='370px'/>
                   </div>
                 </div>
 
@@ -90,11 +137,8 @@ function Singleproduct(props) {
                     <p className="single-product-pricing"><span>Price Per Unit.</span>{ele.price}</p>
                     <p>{ele.description}</p>
                     <div className="single-product-form">
-                      <form action="index.html">
-                        <input type="number" placeholder={0} />
-                      </form>
-                      {/* <a href="cart.html" className="cart-btn" ><i className="fas fa-shopping-cart" /> Add to Cart</a> */}
-                      <Link to={`/Cart/${ele.id}`} className="cart-btn"><i className="fas fa-shopping-cart" />Add to Cart</Link>
+                    
+                      <a className='cart-btn' onClick={() => send(ele)}><i className="fas fa-shopping-cart" />add to cart</a>
                       <p><strong>Categories: </strong>{ele.category}</p>
                     </div>
                     <h4>Share:</h4>
@@ -125,36 +169,24 @@ function Singleproduct(props) {
             </div>
           </div>
           <div className="row">
-            <div className="col-lg-4 col-md-6 text-center">
-              <div className="single-product-item">
-                <div className="product-image">
-                  <a href="single-product.html"><img src="assets/img/products/product-img-1.jpg" alt /></a>
-                </div>
-                <h3>Strawberry</h3>
-                <p className="product-price"><span>Per Kg</span> 85$ </p>
-                <a href="cart.html" className="cart-btn"><i className="fas fa-shopping-cart" /> Add to Cart</a>
-              </div>
-            </div>
-            <div className="col-lg-4 col-md-6 text-center">
-              <div className="single-product-item">
-                <div className="product-image">
-                  <a href="single-product.html"><img src="assets/img/products/product-img-2.jpg" alt /></a>
-                </div>
-                <h3>Berry</h3>
-                <p className="product-price"><span>Per Kg</span> 70$ </p>
-                <a href="cart.html" className="cart-btn"><i className="fas fa-shopping-cart" /> Add to Cart</a>
-              </div>
-            </div>
-            <div className="col-lg-4 col-md-6 offset-lg-0 offset-md-3 text-center">
-              <div className="single-product-item">
-                <div className="product-image">
-                  <a href="single-product.html"><img src="assets/img/products/product-img-3.jpg" alt /></a>
-                </div>
-                <h3>Lemon</h3>
-                <p className="product-price"><span>Per Kg</span> 35$ </p>
-                <a href="cart.html" className="cart-btn"><i className="fas fa-shopping-cart" /> Add to Cart</a>
-              </div>
-            </div>
+            <Slider {...settings}>
+              {product && product.product.map((val, index) => {
+                return (
+                  <>
+                    <div className="p-3 text-center">
+                      <div className="single-product-item">
+                        <div className="product-image">
+                          <Link to={`/Singleproduct/${val.id}`}><img src={val.url} alt="image" width="200px" height="250px" /></Link>
+                        </div>
+                        <h3>{val.product_name}</h3>
+                        <p className="product-price"><span>Per Kg</span> {val.price} </p>
+                        <a className='cart-btn' onClick={() => send(val)}>add to cart</a>
+                      </div>
+                    </div>
+                  </>
+                )
+              })}
+            </Slider>
           </div>
         </div>
       </div>
@@ -170,12 +202,4 @@ export default Singleproduct;
 
 
 
-
-
-
-// // useEffect(() => {
-// //  const data1 =  dispatch(singleproductdata(data.id))
-// //   setData(data);
-// // console.log("single product",data1);
-// // }, [id])
 
