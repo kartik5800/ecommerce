@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 function A404(props) {
     return (
@@ -44,7 +45,7 @@ function A404(props) {
               <i className="far fa-sad-cry" />
               <h1>Oops! Not Found.</h1>
               <p>The page you requested for is not found.</p>
-              <a href="index.html" className="boxed-btn">Back to Home</a>
+              <Link to={"/"} className="boxed-btn">Back to Home</Link>
             </div>
           </div>
         </div>

@@ -31,7 +31,7 @@ function Checkout(props) {
 
 
 
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
   const [data, setData] = useState([]);
   const [Update, setUpdate] = useState();
   const dispatch = useDispatch();
@@ -79,11 +79,11 @@ function Checkout(props) {
   });
 
 
+
   // data submit krva mate
   const handleSubmitdata = (value) => {
     dispatch(postcoustomer(value));
-    setOpen(false);
-    // loadData();
+   
   };
 
   const columns1 = [

@@ -71,11 +71,6 @@ export const updatecategory = (data) => async (dispatch) => {
     if (typeof data.file === "string") {
       await updateDoc(washingtonRef, {
         category_name: data.category_name,
-        category: data.category,
-        company_name: data.company_name,
-        price: data.price,
-        model_no: data.model_no,
-        description: data.description,
         url: data.url
       });
 
@@ -95,11 +90,6 @@ export const updatecategory = (data) => async (dispatch) => {
                 // console.log("Document written with ID: ", docRef.id);
                 await updateDoc(washingtonRef, {
                   category_name: data.category_name,
-                  category: data.category,
-                  company_name: data.company_name,
-                  price: data.price,
-                  model_no: data.model_no,
-                  description: data.description,
                   url: url,
                   fileName: rendomStr
                 });

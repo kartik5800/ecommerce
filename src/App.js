@@ -37,11 +37,12 @@ function App() {
               <PublicRoute exact path={"/News"} component={News} />
               <PublicRoute exact path={"/Singleproduct/:id"} component={Singleproduct} />
               <PublicRoute exact path={"/Cart"} component={Cart} />
-              <PublicRoute exact path={"/Checkout"} component={Checkout} />
+              <PrivateRoute exact path={"/Checkout"} component={Checkout} />
               <PublicRoute restricted={true} exact path={"/Login"} component={Login} />
               <PublicRoute exact path={"/A404"} component={A404} />
               <Route exact path={"/Admin"} component={Admin} />
               <Route exact path={"/Admin2"} component={Admin2} />
+              <PublicRoute exact path={"/*"} component={A404} />
             </Switch>
 
           </PersistGate>

@@ -1592,27 +1592,27 @@ div.owl-controls, .owl-controls div {
 
 ----------------------------------------------------------------------------- */
 .news-bg-1 {
-  background-image: url(../img/latest-news/news-bg-1.jpg);
+  background-image: url(../img/44.jpg);
 }
 
 .news-bg-2 {
-  background-image: url(../img/latest-news/news-bg-2.jpg);
+  background-image: url(../img/22.jpg);
 }
 
 .news-bg-3 {
-  background-image: url(../img/latest-news/news-bg-3.jpg);
+  background-image: url(../img/11.jpg);
 }
 
 .news-bg-4 {
-  background-image: url(../img/latest-news/news-bg-4.jpg);
+  background-image: url(../img/33.png);
 }
 
 .news-bg-5 {
-  background-image: url(../img/latest-news/news-bg-5.jpg);
+  background-image: url(../img/55.png);
 }
 
 .news-bg-6 {
-  background-image: url(../img/latest-news/news-bg-6.jpg);
+  background-image: url(../img/66.png);
 }
 
 .latest-news-bg {
@@ -2383,6 +2383,10 @@ ul.social-link-team li a {
   padding: 0;
   list-style: none;
   text-align: center;
+}
+
+.product-filters ul li:hover {
+  background-color: #F28123;
 }
 
 .product-filters ul li {

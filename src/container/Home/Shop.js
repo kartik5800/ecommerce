@@ -120,19 +120,9 @@ console.log("category",category);
             {/* products */}
             <div className="product-section mt-150 mb-150">
                 <div className="container">
-                    {/* <div className="row">
-                        <div className="col-md-12">
-                            <div className="product-filters"> <ul>
-                                    {uniqcategory.map((valcat, index) => {
-                                        return (
-                                            <li data-filter=".strawberry">{valcat}</li>
-                                        )
-                                    })}
-                                </ul>
-                            </div>
-                        </div>
-                    </div> */}
+          
                     <Navbar filterItem={filterItem} uniqueList={uniqueList} />
+                    
                     <div className="row product-lists">
                         {finalData && finalData.map((val, index) => {
                             return (

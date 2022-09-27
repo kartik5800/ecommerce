@@ -102,11 +102,11 @@ export const Admin2 = () => {
 
 
     const columns = [
-        { field: "id", headerName: "ID", width: 70 },
-        { field: "category_name", headerName: "Category Name", width: 130 },
+        { field: "id", headerName: "ID", width: 170 },
+        { field: "category_name", headerName: "Category Name", width: 230 },
  
         {
-            field: 'url', headerName: 'Image', width: 80,
+            field: 'url', headerName: 'Image', width: 180,
             renderCell: (params) => (
                 <>
                     <img src={params.row.url} style={mystyle} />
@@ -164,6 +164,7 @@ export const Admin2 = () => {
         setUid(params.row.id)
         console.log("deweewewewe", data, params);
     };
+
 
 
     return (

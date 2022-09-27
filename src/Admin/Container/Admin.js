@@ -213,7 +213,7 @@ console.log("categorys",categorys);
 
 
     return (
-        <>
+        < >
             <h1 className='m-5 p-5'>admin panel</h1>
             <div>
                 <Button variant="outlined" onClick={handleClickOpen}>
@@ -266,19 +266,6 @@ console.log("categorys",categorys);
                                     helperText={formik.errors.product_name}
                                     error={formik.errors.product_name ? true : false}
                                 />
-                                {/* <TextField
-                                    margin="dense"
-                                    id="category"
-                                    label="category"
-                                    type="category"
-                                    fullWidth
-                                    variant="standard"
-                                    onChange={formik.handleChange}
-                                    defaultValue={formik.values.category}
-                                    helperText={formik.errors.category}
-                                    error={formik.errors.category ? true : false}
-                                /> */}
-                                
 
                                 <TextField
                                     margin="dense"
@@ -312,7 +299,7 @@ console.log("categorys",categorys);
                                     fullWidth
                                     variant="standard"
                                     onChange={formik.handleChange}
-                                    defaultValue={formik.values.qnty}
+                                    defaultValue={0}
                                     helperText={formik.errors.qnty}
                                     error={formik.errors.qnty ? true : false}
                                 />
@@ -342,6 +329,7 @@ console.log("categorys",categorys);
                                     error={formik.errors.description ? true : false}
                                 />
                                 <input
+                                margin="dense"
                                     type="file"
                                     name="file"
                                     id="file"
